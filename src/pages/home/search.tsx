@@ -1,5 +1,5 @@
 import React from "react";
-import { useInputText } from "../../hooks";
+import { useInputText, useSearch } from "../../hooks";
 import { Loading } from "../../components/loading";
 import { ISearchInputProps } from "./types";
 
@@ -8,15 +8,25 @@ export function SearchInput(props: ISearchInputProps) {
     query: props.query ? props.query : "",
   };
   const input = useInputText(initialValues);
+  const { search } = useSearch();
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  async function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-  }
+  const verify = async (str: string) => {
+    setIsLoading(true);
+    await search(str).finally(() => {
+      setIsLoading(false);
+    });
+  };
+
+  React.useEffect(() => {
+    if (input.query !== "") {
+      verify(input.query);
+    }
+  }, [input.query]);
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form className="w-full">
       <div className="search-section relative">
         <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
           {isLoading ? (
