@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAll } from "../../services";
-import { CardCountry, PageContainer, SectionTitle } from "../../components";
+import { CardCountry, SectionTitle } from "../../components";
 
 export function List() {
   const {
@@ -12,7 +12,7 @@ export function List() {
   } = useQuery(["/all"], getAll, {});
 
   return (
-    <PageContainer>
+    <React.Fragment>
       <div className="mb-2">
         <SectionTitle text="World's Countries" />
       </div>
@@ -28,6 +28,6 @@ export function List() {
             </div>
           ))}
       </div>
-    </PageContainer>
+    </React.Fragment>
   );
 }
