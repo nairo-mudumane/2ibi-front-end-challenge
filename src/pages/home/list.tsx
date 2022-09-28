@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getAll } from "../../services";
-import { CardCountry, PageContainer } from "../../components";
+import { CardCountry, PageContainer, SectionTitle } from "../../components";
 
 export function List() {
   const {
@@ -13,6 +13,10 @@ export function List() {
 
   return (
     <PageContainer>
+      <div className="mb-2">
+        <SectionTitle text="World's Countries" />
+      </div>
+
       <div className="flex flex-wrap">
         {countries &&
           countries.map((country) => (
