@@ -32,9 +32,10 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
                   <Link to={`/countries/${formatUrl(country.name.common)}`}>
                     <Tooltip title={`Visit ${country.name.official}`}>
                       <Avatar
-                        className="absolute top-[-1rem] border-[3px] border-white1"
                         src={country.flags.svg}
                         alt={country.name.official}
+                        sx={{ width: 56, height: 56 }}
+                        className="absolute top-[-1rem] border-[3px] border-white1"
                       />
                     </Tooltip>
                   </Link>
