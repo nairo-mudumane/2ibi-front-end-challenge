@@ -15,7 +15,7 @@ import { formatNumber, formatUrl } from "../../utils";
 
 export function CardCountry({ country, ...props }: ICardCountryProps) {
   return (
-    <div
+    <article
       className={`${
         props.className && props.className
       } border border-blue2 shadow-sm rounded-xl transition hover:shadow-md hover:border-blue1`}
@@ -105,6 +105,6 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
           </div>
         </div>
       </StyledCardCountry>
-    </div>
+    </article>
   );
 }

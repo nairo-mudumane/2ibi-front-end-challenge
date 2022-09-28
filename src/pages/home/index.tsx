@@ -1,4 +1,5 @@
-import { Header, PageContainer } from "../../components";
+import { PageContainer } from "../../components";
+import { Header } from "./header";
 import { List } from "./list";
 
 export function Home() {
@@ -7,7 +8,7 @@ export function Home() {
       <PageContainer>
         <Header />
 
-        <List />
+        {/* <List /> */}
       </PageContainer>
     </div>
   );
