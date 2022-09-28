@@ -8,7 +8,7 @@ export function Home() {
       <PageContainer>
         <Header />
 
-        {/* <List /> */}
+        <List />
       </PageContainer>
     </div>
   );

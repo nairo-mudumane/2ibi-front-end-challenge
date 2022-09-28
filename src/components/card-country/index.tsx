@@ -14,6 +14,10 @@ import { Link } from "react-router-dom";
 import { formatNumber, formatUrl } from "../../utils";
 
 export function CardCountry({ country, ...props }: ICardCountryProps) {
+  function prevent(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+  }
+
   return (
     <article
       className={`${
@@ -29,16 +33,14 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
             <div className="bg-white1 rounded-t-2xl border-t-2 border-blue2 hover:border-blue1">
               <div className="px-4">
                 <div className="flex items-start justify-between relative">
-                  <Link to={`/countries/${formatUrl(country.name.common)}`}>
-                    <Tooltip title={`Visit ${country.name.official}`}>
-                      <Avatar
-                        src={country.flags.svg}
-                        alt={country.name.official}
-                        sx={{ width: 56, height: 56 }}
-                        className="absolute top-[-1rem] border-[3px] border-white1"
-                      />
-                    </Tooltip>
-                  </Link>
+                  <Tooltip arrow title={`Open ${country.name.official}'s flag`}>
+                    <Avatar
+                      src={country.flags.svg}
+                      alt={country.name.official}
+                      sx={{ width: 56, height: 56 }}
+                      className="absolute top-[-1rem] border-[3px] border-white1"
+                    />
+                  </Tooltip>
 
                   <div className="pt-1">
                     <Tooltip title="International Dialing Prefix" arrow>
@@ -90,14 +92,20 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
                   </div>
 
                   <div className="w-max pb-1 ml-auto">
-                    <Link to={`/countries/${formatUrl(country.name.common)}`}>
-                      <Button
-                        className="!border-blue2 !text-blue1 hover:!border-blue1 hover:!font-semibold"
-                        variant="outlined"
+                    <Tooltip title="available soon" arrow>
+                      <Link
+                        onClick={prevent}
+                        className="!cursor-not-allowed"
+                        to={`/countries/${formatUrl(country.name.common)}`}
                       >
-                        Ver mais
-                      </Button>
-                    </Link>
+                        <Button
+                          className="!cursor-not-allowed !border-blue2 !text-blue1 hover:!border-blue1 hover:!font-semibold"
+                          variant="outlined"
+                        >
+                          Ver mais
+                        </Button>
+                      </Link>
+                    </Tooltip>
                   </div>
                 </div>
               </div>
