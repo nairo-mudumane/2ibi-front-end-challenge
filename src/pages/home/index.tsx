@@ -1,5 +1,10 @@
 import React from "react";
+import { PageContainer } from "../../components";
 
 export function Home() {
-  return <div>Home</div>;
+  return (
+    <PageContainer>
+      <h1>home</h1>
+    </PageContainer>
+  );
 }
