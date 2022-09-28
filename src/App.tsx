@@ -1,10 +1,12 @@
+import React from "react";
 import "./main.css";
+import { AppRoutes } from "./router";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-lg">app</h1>
-    </div>
+    <React.Fragment>
+      <AppRoutes />
+    </React.Fragment>
   );
 }
 
