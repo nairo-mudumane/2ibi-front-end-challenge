@@ -3,7 +3,7 @@ import { List } from "./list";
 
 export function Home() {
   return (
-    <div className="mt-8 min-h-[100vh]">
+    <div className="mt-8 min-h-[60vh]">
       <PageContainer>
         <Header />
 
