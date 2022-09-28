@@ -18,7 +18,7 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
     <div
       className={`${
         props.className && props.className
-      } w-full mb-4 border border-gray3 shadow-sm rounded-xl transition hover:shadow-md hover:border-gray2`}
+      } border border-gray3 shadow-sm rounded-xl transition hover:shadow-md hover:border-gray2`}
     >
       <StyledCardCountry
         flag={country.flags.png}
@@ -41,7 +41,7 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
 
                   <div className="pt-1">
                     <Tooltip title="International Dialing Prefix" arrow>
-                      <div className="text-[0.8em] text-white1 bg-blue1 rounded px-1">
+                      <div className="mb-1 text-[0.8em] text-white1 bg-blue1 rounded px-1">
                         <Phone fontSize="small" />
                         <span>{country.idd.root}</span>
                       </div>
@@ -50,8 +50,8 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
                 </div>
 
                 <div className="my-2">
-                  <div className="mb-2 flex items-start justify-between">
-                    <h2 className="text-md font-bold">
+                  <div className="mb-4 flex flex-wrap items-center justify-between">
+                    <h2 className="mb-1 text-md font-bold lg:text-lg">
                       <Link
                         className="link"
                         to={`/countries/${formatUrl(country.name.common)}`}
@@ -60,19 +60,19 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
                       </Link>
                     </h2>
 
-                    <p className="flex text-gray1 items-center mb-2">
-                      <Public fontSize="small" className="mr-1" />
-                      {country.region}, {country.subregion}
-                    </p>
-                  </div>
-
-                  <div className="mb-1 text-gray1 text-md">
-                    <p className="flex items-center mb-2">
+                    <p className="mb-1 text-sm text-gray1 flex items-center">
                       <span className="font-semibold mr-2">Capital:</span>
                       {country.capital}
                     </p>
+                  </div>
 
-                    <div className="text-gray1 text-md flex items-center">
+                  <div className="text-sm text-gray1 text-md">
+                    <p className="flex items-center mb-1">
+                      <Public fontSize="small" className="mr-1" />
+                      {country.region}, {country.subregion}
+                    </p>
+
+                    <div className="text-sm text-gray1 flex items-center">
                       <AccessTime fontSize="small" className="mr-1" />
                       <span>{country.timezones[0]}</span>
                     </div>

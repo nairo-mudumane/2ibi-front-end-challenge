@@ -17,10 +17,15 @@ export function List() {
         <SectionTitle text="World's Countries" />
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-start justify-between">
         {countries &&
           countries.map((country) => (
-            <CardCountry key={country.name.official} country={country} />
+            <div
+              key={country.name.official}
+              className="flex-1 w-full mb-4 md:m-2 md:min-w-[20rem] lg:min-w-[16rem] xl:min-w-[19rem] 2xl:min-w-[24rem]"
+            >
+              <CardCountry country={country} className="w-full min-w-[300px]" />
+            </div>
           ))}
       </div>
     </PageContainer>
