@@ -118,7 +118,7 @@ export function CardCountry({ country, ...props }: ICardCountryProps) {
                             className="!cursor-not-allowed !border-blue2 !text-blue1 hover:!border-blue1 hover:!font-semibold"
                             variant="outlined"
                           >
-                            Ver mais
+                            See more
                           </Button>
                         </Link>
                       </Tooltip>
